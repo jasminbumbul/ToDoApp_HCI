@@ -5,6 +5,7 @@ const todoButton= document.querySelector('.todo-button');
 const todoTitle = document.querySelector('.todo-title');
 const datePicker = document.querySelector('.datePicker');
 const nodateChk= document.querySelector("#checkbox_nodate");
+const kategorija= document.getElementById('kategorijaSelect');
 
 //event listeners
 
@@ -18,8 +19,9 @@ todoButton.addEventListener('click', addTodo);
 
 
 
-
 //functions
+
+
 
 function addTodo(event) {
     let bool=1;
@@ -44,7 +46,7 @@ function addTodo(event) {
             month: null,
             year: null
         }];
-        if(nodateChk.checked)
+        if(nodateChk.checked==true)
         {
             date.day=null;
             date.month=null;
@@ -55,16 +57,28 @@ function addTodo(event) {
             date.month=month;
             date.year=year;
         }
-        const arr = [
-            {
-                title: todoTitle.value,
-                todo: todoInput.value,
-                date: { day: date.day, month: date.month, year: date.year}
-            }];
-        saveToLocalStorage(arr[0]);
-
-        alert("Uspješno dodana todo stavka");
-        location.href = "/danas.html";
+        if(nodateChk.checked==true && date.day==0)
+        {
+            alert("Ne možete označiti bez datuma ukoliko je odabran datum.");
+        }
+        else
+        if(nodateChk.checked==false && date.day=="")
+        {
+            alert("Ukoliko nije odabran datum, odaberite opciju 'Bez datuma'.");
+        }
+        else{
+            const arr = [
+                {
+                    title: todoTitle.value,
+                    todo: todoInput.value,
+                    date: { day: date.day, month: date.month, year: date.year},
+                    kategorija: kategorija.value
+                }];
+                saveToLocalStorage(arr[0]);
+                
+                alert("Uspješno dodana todo stavka");
+                location.href = "/danas.html";
+            }
     }
 }
 

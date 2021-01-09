@@ -20,23 +20,18 @@
             <div class="choose-date">
                 <input type="date" class="datePicker">
                 <div id=nodate>
-                    <label for="checkbox_nodate">No date</label>
+                    <label for="checkbox_nodate">Bez datuma</label>
                     <input id="checkbox_nodate" type="checkbox">
                 </div>
             </div>
             <div class="kategorija">
-                <label for="">Kategorija:</label>
-                <br>
-                <input type="checkbox" id="chkpersonal">
-                <span>Lično</span>
-                <br>
-                <input type="checkbox" id="chkposao">
-                <span>Posao</span>
-                <br>
-                <input type="checkbox" id="chkzabava">
-                <span>Zabava</span>
-                <br>
-
+                <select id="kategorijaSelect" name="kategorijaSelect" selected id="">
+                    <option selected disabled value="0">Odaberite jednu od ponuđenih opcija</option>
+                    <option value="posao">Posao</option>
+                    <option value="licno">Lično</option>
+                    <option value="zabava">Zabava</option>
+                    <option value="ostalo">Ostalo</option>
+                </select>
             </div>
             <!-- <div class="select">
                 <select name="todos" class="filter-todo">

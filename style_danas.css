@@ -19,8 +19,24 @@ body{
 
 header {
     background-color: black;
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 10px;
+}
+
+.wrapperHeader{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    display:flex;
+    justify-content: space-between;
+}
+
+header #todaysDate{
+    margin-left: 15px;
+}
+
+#navIcons{
+    margin-right: 15px;
 }
 
 #overHeaderPanel{
@@ -56,11 +72,35 @@ header {
     justify-content: space-between;
     align-items: center;
     transition: all 0.5s ease;
+    width: 350px;
 }
 
 .todo li{
     /*this moves the icons to the right side(eliminates the space between them)*/
     flex: 1;  
+    margin-left: 10px;
+    margin-top: 4px;
+}
+
+.todo .todo-title{
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 10px;
+    font-size: 10px;
+}
+
+.todo .todo-date{
+    position: absolute;
+    margin-left: 140px;
+    margin-top: 35px;
+    font-size: 10px;
+}
+
+.todo .todo-categ{
+    position: absolute;
+    margin-top: 35px;
+    margin-left: 10px;
+    font-size: 10px;
 }
 
 .trash-btn, .complete-btn{
