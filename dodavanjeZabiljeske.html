@@ -6,30 +6,24 @@
     <title>Novi zadatak</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/style_zabiljeske.css">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="/style_dodavanjeZabiljeske.css">
 </head>
 <body>
     <div class="wrapper">
 
         <header>
-            <h1>Zabilješke:</h1>
+            <h1>Nova zabilješka</h1>
         </header>
-        <div class="zab-list">
-            
-        </div>
-    </div>
-    <footer>
-        <div class="wrapper">
-            <div id="dodajZab">
-                    <h3> + dodaj</h3>
-            </div>
-            <div id="danas">
-                    <h3>danas</h3>
-            </div>
-        </div>
-    </footer>
+        <form>
+            <input type="text" class="zab-title" placeholder="Naslov">
+            <input type="text" class="zab-input" placeholder="Opis"  >
+        </form>
+
+        <button id="novaZabiljeska" class="zab-button" type="submit">+ dodaj</button>
     
-    <script src="zabiljeske.js"></script>
+    </div>
+    
+    
+    <script src="DodavanjeZabiljeske.js"></script>
 </body>
 </html>
