@@ -9,13 +9,24 @@
     <title>Danas</title>
     <link rel="shortcut icon" href="#">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
     <div id="overHeaderPanel"></div>
     <header>
         <div class="wrapperHeader">
             <span id="todaysDate"></span>
-            <span id="navIcons">icons placeholder</span>
+            <span id="navIcons">
+                <span id="icon-settings">
+                    <i class="fas fa-sliders-h"></i>
+                </span>
+                <span id="icon-notes">
+                    <i class="far fa-sticky-note"></i>
+                </span>
+                <span id="icon-calendar">
+                    <i class="far fa-calendar-alt"></i>
+                </span>
+            </span>
         </div>
     </header>
     <div class="wrapper">
@@ -31,6 +42,10 @@
           </ul>
           
           <ul class="days">  
+            <li><span> </span></li>
+            <li><span> </span></li>
+            <li><span> </span></li>
+            <li><span> </span></li>
             <li><span id="1" onclick="aktiviraj(this.id)">1</span></li>
             <li><span id="2" onclick="aktiviraj(this.id)">2</span></li>
             <li><span id="3" onclick="aktiviraj(this.id)">3</span></li>
@@ -67,23 +82,26 @@
         <div class="todo-container">
             <ul class="todo-list"></ul>
         </div>
-    </div>
-        
-    <footer>
-        <div class="wrapper">
-            <div id="pocetna">
-                    <h3>početna</h3>
-            </div>
-            <div id="dodajnovi">
-                    <h3>dodajnovi</h3>
-            </div>
-            <div id="danas">
-                    <h3>danas</h3>
-            </div>
         </div>
-    </footer>
+        
+        <footer>
+            <div class="wrapper">
+                <div id="pocetna">
+                    <i class="fas fa-home"></i>
+                    <h3>početna</h3>
+                </div>
+                <div id="dodajnovi">
+                    <i class="far fa-plus-square"></i>
+                    <h3>dodajnovi</h3>
+                </div>
+                <div id="danas">
+                    <i class="fas fa-tasks"></i>
+                    <h3>danas</h3>
+                </div>
+            </div>
+        </footer>
 
-    <script src="/kalendar.js"></script>
+    <script src="./kalendar.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
 </body>
 </html>

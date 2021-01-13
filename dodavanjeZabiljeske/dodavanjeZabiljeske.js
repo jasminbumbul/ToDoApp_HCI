@@ -26,7 +26,7 @@ function addZab(event) {
         saveToLocalStorage(arr[0]);
 
         alert("Uspješno dodana zabilješka");
-        location.href = "/zabiljeske.html";
+        location.href = "/zabiljeske/zabiljeske.html";
 
     }
 }
