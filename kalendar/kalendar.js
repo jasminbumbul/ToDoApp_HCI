@@ -1,13 +1,16 @@
 const todaysdate = document.querySelector("#todaysDate"); 
-const dodajNoviBtn = document.querySelector("#dodajnovi");
+const dodajNoviBtn = document.querySelector("#dodajNovi");
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 const filterOption = document.querySelector(".filter-todo");
+
 addTodaysDate();
 
 document.addEventListener('DOMContentLoaded', getTodos);
 dodajNoviBtn.addEventListener('click', dodajNoviRedirect);
+
+todoList.addEventListener('click', deleteCheck);
 
 function dodajNoviRedirect() {
     location.href = "/noviZadatak.html";
@@ -101,17 +104,104 @@ function getTodos() {
             todoDiv.appendChild(category);
             category.innerText = todo.kategorija;
             //check button
-            // const completedButton = document.createElement('button');
-            // completedButton.innerHTML = '<i class="fas fa-check" ></i>';
-            // completedButton.classList.add("complete-btn");
-            // todoDiv.appendChild(completedButton);
-            // //delete button
-            // const trashButton = document.createElement('button');
-            // trashButton.innerHTML = '<i class="fas fa-trash" ></i>';
-            // trashButton.classList.add("trash-btn");
-            // todoDiv.appendChild(trashButton);
+            const completedButton = document.createElement('button');
+            completedButton.innerHTML = '<i class="fas fa-check" ></i>';
+            completedButton.classList.add("complete-btn");
+            todoDiv.appendChild(completedButton);
+            //delete button
+            const trashButton = document.createElement('button');
+            trashButton.innerHTML = '<i class="fas fa-trash" ></i>';
+            trashButton.classList.add("trash-btn");
+            todoDiv.appendChild(trashButton);
             //append to list
             todoList.appendChild(todoDiv);
         }
     });
+}
+
+
+function deleteCheck(event) {
+    const item = event.target;
+    const todo = item.parentElement;
+    //DELETE TODO
+    if (item.classList[0] === 'trash-btn') {
+        //animation
+        todo.classList.add('fall');
+        removeFromLocalStorage(todo);
+        todo.addEventListener("transitionend", function () {
+            todo.remove();
+        });
+    }
+    //checkmark
+    let todos;
+    if (localStorage.getItem("todos") === null) {
+        todos = [];
+    } else {
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+
+    if (item.classList[0] === 'complete-btn') {
+        todo.classList.toggle('completed');
+    }
+}
+
+function removeItemFromLocalStorage(todo)
+{
+        //animation
+        removeFromLocalStorage(todo);
+}
+function filterTodo(event) {
+    const todos = todoList.childNodes;
+    todos.forEach(function (todo) {
+        switch (event.target.value) {
+            case "all":
+                todo.style.display = "flex";
+                break;
+            case "completed":
+                if (todo.classList.contains("completed")) {
+                    todo.style.display = "flex";
+                }
+                else {
+                    todo.style.display = "none";
+                }
+                break;
+            case "uncompleted":
+
+                if (!todo.classList.contains('completed')) {
+                    todo.style.display = 'flex';
+                }
+                else {
+                    todo.style.display = 'none';
+                }
+                break;
+        }
+    });
+}
+function saveToLocalStorage(todo)
+{
+    //check if there are items in already
+    let todos;
+    if(localStorage.getItem('todos')===null)
+    {
+        todos=[];
+    }
+    else{
+        todos=JSON.parse(localStorage.getItem('todos'));
+    }
+
+    todos.push(todo);
+    localStorage.setItem('todos',JSON.stringify(todos));
+}
+function removeFromLocalStorage(todo) {
+    //check if there are items in already
+    let todos;
+    if (localStorage.getItem('todos') === null) {
+        todos = [];
+    }
+    else {
+        todos = JSON.parse(localStorage.getItem('todos'));
+    }
+    const todoIndex = todo.children[0].innerText;
+    todos.splice(todos.indexOf(todoIndex), 1);
+    localStorage.setItem("todos", JSON.stringify(todos));
 }

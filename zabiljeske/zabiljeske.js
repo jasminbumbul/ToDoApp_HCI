@@ -34,15 +34,17 @@ function deleteCheck(event) {
 function removeFromLocalStorage(zab) {
     //check if there are items in already
     let zabiljeske;
-    if (localStorage.getItem('zabiljeske') === null) {
+    if (localStorage.getItem("zabiljeske") === null) {
+        alert("jes");
         zabiljeske = [];
     }
     else {
-        zabiljeske = JSON.parse(localStorage.getItem('zabiljeske'));
+        zabiljeske = JSON.parse(localStorage.getItem("zabiljeske"));
     }
     const zabIndex = zab.children[0].innerText;
     zabiljeske.splice(zabiljeske.indexOf(zabIndex), 1);
     localStorage.setItem("zabiljeske", JSON.stringify(zabiljeske));
+    location.href = "/zabiljeske/zabiljeske.html";
 }
 
 
@@ -74,5 +76,6 @@ function getZabiljeske() {
         trashButton.innerHTML = '<i class="fas fa-trash" ></i>';
         trashButton.classList.add("trash-btn");
         zabDiv.appendChild(trashButton);
+        zabList.appendChild(zabDiv);
     });
 }

@@ -62,6 +62,8 @@ function addTodaysDate() {
     day5Btn.innerHTML = danUMjesecu + 4;
     day6Btn.innerHTML = danUMjesecu + 5;
     day7Btn.innerHTML = danUMjesecu + 6;
+    //oznacava aktivan danas
+    day1Btn.classList.add("active");
 }
 
 function getTodos() {
