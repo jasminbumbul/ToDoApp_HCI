@@ -21,6 +21,7 @@ header {
     background-color: black;
     font-size: 15px;
     margin-bottom: 10px;
+    height: 26px;
 }
 
 .wrapperHeader{
@@ -43,6 +44,13 @@ header #todaysDate{
     height: 30px;
     background-color: rgb(190, 190, 190);
 }
+
+.fa-cog, .fa-sticky-note, .fa-calendar{
+    padding: 0 5px 0 5px;
+    font-size: 21px;
+    margin-top: 2px;
+}
+
 
 #trakaDana{
     text-align: center;
@@ -72,7 +80,8 @@ header #todaysDate{
     justify-content: space-between;
     align-items: center;
     transition: all 0.5s ease;
-    width: 350px;
+    width: 300px;
+    border-radius: 15px;
 }
 
 .todo li{
@@ -110,6 +119,7 @@ header #todaysDate{
     border: none;
     cursor: pointer;
     font-size: 1rem;
+    border-radius: 15px;
 }
 
 .complete-btn{
@@ -170,6 +180,14 @@ select{
 .select:hover::after{
     background: white;
     color: #2a93bd;
+}
+
+#pocetna, #dodajNovi, #danas{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 15px;
+    
 }
 
 

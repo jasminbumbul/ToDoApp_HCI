@@ -21,8 +21,6 @@ todoButton.addEventListener('click', addTodo);
 
 //functions
 
-
-
 function addTodo(event) {
     let bool=1;
     let year= datePicker.value.substring(0,4);
@@ -57,7 +55,7 @@ function addTodo(event) {
             date.month=month;
             date.year=year;
         }
-        if(nodateChk.checked==true && date.day==0)
+        if(nodateChk.checked==true && (date.day!=0 || date.day!=null))
         {
             alert("Ne možete označiti bez datuma ukoliko je odabran datum.");
         }
@@ -66,13 +64,18 @@ function addTodo(event) {
         {
             alert("Ukoliko nije odabran datum, odaberite opciju 'Bez datuma'.");
         }
+        if(kategorija.value==0)
+        {
+            alert("Nije odabrana kategorija");
+        }
         else{
             const arr = [
                 {
                     title: todoTitle.value,
                     todo: todoInput.value,
                     date: { day: date.day, month: date.month, year: date.year},
-                    kategorija: kategorija.value
+                    kategorija: kategorija.value,
+                    done: 0
                 }];
                 saveToLocalStorage(arr[0]);
                 
