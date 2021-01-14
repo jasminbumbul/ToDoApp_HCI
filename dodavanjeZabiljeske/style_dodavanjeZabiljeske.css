@@ -33,7 +33,7 @@ header h1{
     width: 90%;
 }
 
-.todo-title,.todo-input{
+.zab-title,.zab-input{
     width: 100%;
     margin-bottom: 20px;
     margin-left: auto;
@@ -44,11 +44,11 @@ header h1{
     
 }
 
-.todo-title{
+.zab-title{
     height: 40px;
 }
 
-.todo-input{
+.zab-input{
     height: 250px;
     padding: 20px 10px;
     line-height: 50px;
@@ -56,7 +56,7 @@ header h1{
 }
 
 
-.todo-button{
+.zab-button{
     width: 90%;
     height: 50px;
     border-radius: 20px;
@@ -66,7 +66,7 @@ header h1{
     position: absolute;
     bottom: 10px;
 }
-.todo-button:hover{
+.zab-button:hover{
     cursor: pointer;
 }
 

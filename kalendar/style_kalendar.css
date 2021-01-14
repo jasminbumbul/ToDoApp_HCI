@@ -33,6 +33,7 @@ header {
 
 header #todaysDate{
     margin-left: 15px;
+    padding: 5px;
 }
 
 #navIcons{
@@ -118,7 +119,7 @@ header #todaysDate{
 }
 
 .todo-item{
-    padding: 0rem 0.5rem;
+    padding: 0.5rem 0.5rem;
 }
 
 .fa-trash,
@@ -188,15 +189,35 @@ footer a{
     text-decoration: none;
     font-size: 15px;
 }
-#pocetna:hover{
+#pocetna{
+    flex-direction: column;
+}
+.fa-home, .fa-plus-square, .fa-tasks{
+    font-size: 30px;
+}
+.fa-home{
+    padding: 5px 25px 0 25px;
+}
+.fa-plus-square{
+    padding: 5px 35px 0 35px;
+}
+.fa-tasks{
+    padding: 5px 15px 0 15px;
+}
+#dodajnovi, #danas{
+    flex-direction: column;
+}
+#pocetna:hover, #dodajnovi:hover, #danas:hover, #icon-settings:hover, #icon-notes:hover, #icon-calendar:hover{
     cursor: pointer;
 }
-#dodajnovi:hover{
-    cursor: pointer;
+
+.fa-calendar-alt,.fa-sticky-note,.fa-sliders-h{
+    font-size: 20px;
+    padding: 5px;
+    border: solid 1px white;
+    border-radius: 10px;
 }
-#danas:hover{
-    cursor: pointer;
-}
+
 
 /* from W3school */
 

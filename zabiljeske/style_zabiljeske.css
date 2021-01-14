@@ -33,54 +33,20 @@ header h1{
     width: 90%;
 }
 
-.todo-title,.todo-input{
-    width: 100%;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 20px;
-    border-radius: 15px;
-    background-color: rgb(190, 190, 190);
-    
-}
-
-.todo-title{
-    height: 40px;
-}
-
-.todo-input{
-    height: 250px;
-    padding: 20px 10px;
-    line-height: 50px;
-    width: 90%;
-}
-
-
-.todo-button{
-    width: 90%;
-    height: 50px;
-    border-radius: 20px;
-    background-color: black;
-    border: none;
-    color: white;
-    position: absolute;
-    bottom: 10px;
-}
-.todo-button:hover{
-    cursor: pointer;
-}
-
 .card{
-    border: 1px solid black;
-    padding: 3px;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 3px 0 3px 3px;
     margin: 10px;
 }
 
 .card-header{
     margin-left: 10px;
+    width: 70%;
 }
 .card-body{
     margin-left: 25px;
+    width: 70%;
 }
 footer{
     position: absolute;
@@ -99,4 +65,30 @@ footer div{
 footer a{
     text-decoration: none;
     font-size: 15px;
+}
+
+#dodajZab, #danas{
+    flex-direction: column;
+}
+#dodajZab:hover, #danas:hover{
+    cursor: pointer;
+}
+.fa-plus-square{
+    padding: 5px 35px 0 35px;
+    font-size: 30px;
+}
+.fa-tasks{
+    font-size: 30px;
+    padding: 5px 15px 0 15px;
+}
+.trash-btn{
+    background: #c94062 ;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 1rem;
+    float: right;
+    margin-top: -48px;
 }

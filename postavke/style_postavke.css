@@ -55,3 +55,10 @@ footer a{
     overflow: scroll;
     height: 345px;
 }
+#nazad{
+    flex-direction: column;
+}
+.fa-backward{
+    font-size: 30px;
+    padding: 5px 22px 0 22px;
+}

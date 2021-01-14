@@ -12,16 +12,33 @@ dodajNoviBtn.addEventListener('click', dodajNoviRedirect);
 function dodajNoviRedirect() {
     location.href = "/noviZadatak.html";
 }
+///redirect danas
 const idiDanas = document.querySelector("#danas");
+const idiDanas2 = document.querySelector("#icon-calendar");
 idiDanas.addEventListener('click', idiDanasRedirect);
+idiDanas2.addEventListener('click', idiDanasRedirect);
 function idiDanasRedirect() {
     location.href = "/danas.html";
 }
+//redirekt pocetna
 const idiPocetna = document.querySelector("#pocetna");
 idiPocetna.addEventListener('click', idiPocetnaRedirect);
 function idiPocetnaRedirect() {
     location.href = "/pocetna.html";
 }
+//redirekt zabiljeske
+const idiZabiljeske = document.querySelector("#icon-notes");
+idiZabiljeske.addEventListener('click', idiZabiljeskeRedirect);
+function idiZabiljeskeRedirect() {
+    location.href = "/zabiljeske/zabiljeske.html";
+}
+//redirect postavke
+const idiPostavke = document.querySelector("#icon-settings");
+idiPostavke.addEventListener('click', idiPostavkeRedirect);
+function idiPostavkeRedirect() {
+    location.href = "/postavke/postavke.html";
+}
+
 
 function aktiviraj(id){
     var element=document.getElementById(id);
@@ -52,10 +69,8 @@ function getTodos() {
         todos = JSON.parse(localStorage.getItem("todos"));
     }
     todos.forEach(function (todo) {
-        // var datum = new Date();
-        // var danUMjesecu = datum.getDate();
         const oznaceni= document.querySelector(".active");
-        if (/*todo.date.day == danUMjesecu || */todo.date.day == oznaceni.id) {
+        if (todo.date.day == oznaceni.id || todo.date.day == null) {
             //todo div creation
             const todoDiv = document.createElement('div');
             todoDiv.classList.add('todo');

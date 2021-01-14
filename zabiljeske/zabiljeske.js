@@ -6,13 +6,45 @@ document.addEventListener('DOMContentLoaded', getZabiljeske);
 dodajNoviBtn.addEventListener('click', dodajNoviRedirect);
 
 function dodajNoviRedirect() {
-    location.href = "/dodavanjeZabiljeske.html";
+    location.href = "/dodavanjeZabiljeske/dodavanjeZabiljeske.html";
 }
+
+zabList.addEventListener('click', deleteCheck);
+
+//redirect danas
 const idiDanas = document.querySelector("#danas");
 idiDanas.addEventListener('click', idiDanasRedirect);
 function idiDanasRedirect() {
     location.href = "/danas.html";
 }
+function deleteCheck(event) {
+    const item = event.target;
+    const zab = item.parentElement;
+    //DELETE TODO
+    if (item.classList[0] === 'trash-btn') {
+        //animation
+        zab.classList.add('fall');
+        removeFromLocalStorage(zab);
+        //localStorage.removeItem(zab);
+        zab.addEventListener("transitionend", function () {
+            zab.remove();
+        });
+    }
+}
+function removeFromLocalStorage(zab) {
+    //check if there are items in already
+    let zabiljeske;
+    if (localStorage.getItem('zabiljeske') === null) {
+        zabiljeske = [];
+    }
+    else {
+        zabiljeske = JSON.parse(localStorage.getItem('zabiljeske'));
+    }
+    const zabIndex = zab.children[0].innerText;
+    zabiljeske.splice(zabiljeske.indexOf(zabIndex), 1);
+    localStorage.setItem("zabiljeske", JSON.stringify(zabiljeske));
+}
+
 
 function getZabiljeske() {
     let zabiljeske;
@@ -37,5 +69,10 @@ function getZabiljeske() {
         //zabiljeska text
         zabTextdiv.innerHTML = zab.text;
         zabList.appendChild(zabDiv);
+        //delete button
+        const trashButton = document.createElement('button');
+        trashButton.innerHTML = '<i class="fas fa-trash" ></i>';
+        trashButton.classList.add("trash-btn");
+        zabDiv.appendChild(trashButton);
     });
 }
