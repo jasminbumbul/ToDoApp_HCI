@@ -5,7 +5,8 @@
 }
 
 body{
-    background: rgb(81, 55, 82);
+    background: rgb(39,3,51);
+    background: linear-gradient(180deg, rgba(39,3,51,1) 21%, rgba(133,39,215,1) 100%); 
     color: white;
     font-family: "Poppins", "sans-serif";
     min-height: 100vh;
@@ -64,7 +65,7 @@ header h1{
     border: none;
     color: white;
     position: absolute;
-    bottom: 10px;
+    bottom: 30px;
 }
 
 .choose-date{
@@ -124,4 +125,9 @@ header h1{
     margin-right: auto;
 }
 
+#povratak{
+    position: absolute;
+    left: 30px;
+    top: 47px;
+}
 
