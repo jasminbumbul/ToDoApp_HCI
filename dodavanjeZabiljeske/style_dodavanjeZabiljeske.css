@@ -5,7 +5,7 @@
 }
 
 body{
-    background: rgb(81, 55, 82);
+    background: linear-gradient(180deg, rgba(39,3,51,1) 21%, rgba(133,39,215,1) 100%); 
     color: white;
     font-family: "Poppins", "sans-serif";
     min-height: 100vh;
@@ -70,6 +70,10 @@ header h1{
     cursor: pointer;
 }
 
-
+#povratak{
+    position: absolute;
+    left: 30px;
+    top: 47px;
+}
 
 

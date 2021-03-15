@@ -7,6 +7,7 @@ const filterOption = document.querySelector(".filter-todo");
 
 addTodaysDate();
 
+
 document.addEventListener('DOMContentLoaded', getTodos);
 dodajNoviBtn.addEventListener('click', dodajNoviRedirect);
 
@@ -62,6 +63,7 @@ function addTodaysDate() {
    
     var element=document.getElementById(danUMjesecu);
     element.classList.add("active");
+
 }
 
 function getTodos() {

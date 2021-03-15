@@ -20,15 +20,20 @@ function idiDanasRedirect() {
 function deleteCheck(event) {
     const item = event.target;
     const zab = item.parentElement;
+
+    console.log("sa");
     //DELETE TODO
-    if (item.classList[0] === 'trash-btn') {
+    if (item.classList[0] == 'trash-btn') {
         //animation
         zab.classList.add('fall');
-        removeFromLocalStorage(zab);
+
+        console.log(zab);
+        
         //localStorage.removeItem(zab);
         zab.addEventListener("transitionend", function () {
             zab.remove();
         });
+        removeFromLocalStorage(zab);
     }
 }
 function removeFromLocalStorage(zab) {
@@ -42,8 +47,10 @@ function removeFromLocalStorage(zab) {
         zabiljeske = JSON.parse(localStorage.getItem("zabiljeske"));
     }
     const zabIndex = zab.children[0].innerText;
-    zabiljeske.splice(zabiljeske.indexOf(zabIndex), 1);
-    localStorage.setItem("zabiljeske", JSON.stringify(zabiljeske));
+    // zabiljeske.splice(zabiljeske.indexOf(zabIndex), 1);
+    zabiljeske.splice(zabIndex, 1);
+
+    localStorage.setItem('zabiljeske', JSON.stringify(zabiljeske));
     location.href = "/zabiljeske/zabiljeske.html";
 }
 
@@ -71,6 +78,11 @@ function getZabiljeske() {
         //zabiljeska text
         zabTextdiv.innerHTML = zab.text;
         zabList.appendChild(zabDiv);
+        //edit
+        const editButton = document.createElement('button');
+        editButton.innerHTML = '<i class="far fa-edit></i>';
+        editButton.classList.add("edit-btn");
+        zabDiv.appendChild(editButton);
         //delete button
         const trashButton = document.createElement('button');
         trashButton.innerHTML = '<i class="fas fa-trash" ></i>';
