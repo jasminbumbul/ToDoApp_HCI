@@ -55,7 +55,8 @@ function addTodo(event) {
             date.month=month;
             date.year=year;
         }
-        if(nodateChk.checked==true && (date.day!=0 || date.day!=null))
+        console.log(day);
+        if(nodateChk.checked==true && ( day.length!=0))
         {
             alert("Ne možete označiti bez datuma ukoliko je odabran datum.");
         }

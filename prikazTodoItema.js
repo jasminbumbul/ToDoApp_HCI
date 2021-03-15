@@ -35,7 +35,7 @@ addTodaysDate();
 
 function aktiviraj(id){
     var element=document.getElementById(id);
-    $('span.active').removeClass('active');
+    $('button.active').removeClass('active');
     element.classList.add("active");
     todoList.innerHTML="";
     getTodos();
@@ -52,9 +52,9 @@ function addTodaysDate() {
     var mjesec = date.getMonth();
     var danUMjesecu = date.getDate();
     let mjeseciUGodini = ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Juni', 'Juli', 'August', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'];
-    let daniUSedmici = ['Ponedjeljak', 'Utorak', 'Srijeda', 'Četvrtak', 'Petak', 'Subota', 'Nedjelja'];
-    // todaysdate.innerHTML=daniUSedmici[dayNumber-1]+", "+ mjesec[mjeseciUGodini-1];
-    todaysdate.innerHTML = daniUSedmici[dayNumber - 1] + ", " + danUMjesecu + ". " + mjeseciUGodini[mjesec];
+    let daniUSedmici = ['Nedjelja','Ponedjeljak', 'Utorak', 'Srijeda', 'Četvrtak', 'Petak', 'Subota'];
+    todaysdate.innerHTML = daniUSedmici[dayNumber] + ", " + danUMjesecu + ". " + mjeseciUGodini[mjesec];
+
     day1Btn.innerHTML = danUMjesecu ;
     day2Btn.innerHTML = danUMjesecu + 1;
     day3Btn.innerHTML = danUMjesecu + 2;
@@ -74,16 +74,22 @@ function getTodos() {
         todos = JSON.parse(localStorage.getItem("todos"));
     }
     todos.forEach(function (todo) {
-        // var datum = new Date();
-        // var danUMjesecu = datum.getDate();
-        const oznaceni= document.querySelector(".active");
+        var datum = new Date();
+        var mjesec = "0" + (datum.getMonth() + 1);
+        const oznaceni = document.querySelector(".active");
+
         if(oznaceni!=null)
         {
 
-            if (/*todo.date.day == danUMjesecu || */todo.date.day == oznaceni.innerHTML || todo.date.day==0 || todo.date.day==null) {
+            if (todo.date.day == oznaceni.innerHTML && todo.date.month==mjesec || todo.date.day==0 || todo.date.day==null) {
                 //todo div creation
                 const todoDiv = document.createElement('div');
-                todoDiv.classList.add('todo');
+                todoDiv.className='todo';
+                if (todo.done==1)
+                {
+                    todoDiv.classList.add('completed');
+                    console.log("udje u todo completed");
+                }
                 //title creation
                 const title = document.createElement('div');
                 title.classList.add('todo-title');
@@ -120,6 +126,8 @@ function getTodos() {
             trashButton.innerHTML = '<i class="fas fa-trash" ></i>';
             trashButton.classList.add("trash-btn");
             todoDiv.appendChild(trashButton);
+        
+
             //append to list
             todoList.appendChild(todoDiv);
         }
@@ -129,6 +137,7 @@ function getTodos() {
 
 
 function deleteCheck(event) {
+
     const item = event.target;
     const todo = item.parentElement;
     //DELETE TODO
@@ -150,52 +159,39 @@ function deleteCheck(event) {
         todos = JSON.parse(localStorage.getItem("todos"));
     }
 
+
     if (item.classList[0] === 'complete-btn') {
         todo.classList.toggle('completed');
-        // todos.forEach(function (tudu) {
-        //     if (tudu.title == todo.firstChild.innerText) {
-        //         if (tudu.done == 1) {
-        //             const arr = [
-        //                 {
-        //                     title: tudu.title,
-        //                     todo: tudu.todo,
-        //                     date: { day: tudu.date.day, month: tudu.date.month, year: tudu.date.year },
-        //                     kategorija: tudu.kategorija,
-        //                     done: 0
-        //                 }];
-        //                 saveToLocalStorage(arr[0]);
-        //                removeItemFromLocalStorage(tudu);
+        todos.forEach(function (tudu) {
+            if (tudu.title == todo.firstChild.innerText) {
 
-        //         }
-        //         else if (tudu.done == 0) {
-        //             const arr = [
-        //                 {
-        //                     title: tudu.title,
-        //                     todo: tudu.todo,
-        //                     date: { day: tudu.date.day, month: tudu.date.month, year: tudu.date.year },
-        //                     kategorija: tudu.kategorija,
-        //                     done: 1
-        //                 }];
-        //                 saveToLocalStorage(arr[0]);
-        //                removeItemFromLocalStorage(tudu);
+                if (tudu.done == 1) {
 
-        //         }
-        //     }
-        // });
+                    tudu.done = 0;
+
+                }
+                else {
+                    tudu.done = 1;
+                }
+
+
+            }
+        });
     }
+
+    localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-function removeItemFromLocalStorage(todo)
-{
+function removeItemFromLocalStorage(todo) {
         //animation
         removeFromLocalStorage(todo);
-}
-
-function filterTodo(event) {
-    const todos = todoList.childNodes;
-    todos.forEach(function (todo) {
-        switch (event.target.value) {
-            case "all":
+    }
+    
+    function filterTodo(event) {
+        const todos = todoList.childNodes;
+        todos.forEach(function (todo) {
+            switch (event.target.value) {
+                case "all":
                 todo.style.display = "flex";
                 break;
             case "completed":
