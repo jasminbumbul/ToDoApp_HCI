@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./style_kalendar.css">
-    <title>Danas</title>
+    <title>Kalendar</title>
     <link rel="shortcut icon" href="#">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -82,17 +82,17 @@
         
         <footer>
             <div class="wrapper">
-                <div id="pocetna">
+                <div onclick="location.href='/pocetna/pocetna.html'" id="pocetna">
                     <i class="fa fa-home" aria-hidden="true"></i>
-                    <h3>početna</h3>
+                        <h3>početna</h3>
                 </div>
-                <div id="dodajNovi">
+                <div onclick="location.href='/noviZadatak/noviZadatak.html '" id="dodajNovi">
                     <i class="fa fa-plus-square" aria-hidden="true"></i>
-                    <h3>dodajnovi</h3>
+                        <h3>dodaj novi</h3>
                 </div>
                 <div id="danas">
-                    <i class="fa fa-flag-checkered" aria-hidden="true"></i>
-                    <h3>danas</h3>
+                    <i onclick="location.href='/danas/danas.html'" class="fa fa-flag-checkered" aria-hidden="true"></i>
+                        <h3>danas</h3>
                 </div>
             </div>
         </footer>

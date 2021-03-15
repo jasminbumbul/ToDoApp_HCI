@@ -81,7 +81,7 @@ function addTodo(event) {
                 saveToLocalStorage(arr[0]);
                 
                 alert("Uspješno dodana todo stavka");
-                location.href = "/danas.html";
+                location.href = "/danas/danas.html";
             }
     }
 }

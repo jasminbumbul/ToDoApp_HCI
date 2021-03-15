@@ -17,6 +17,7 @@ const notesIcon= document.querySelector(".fa-sticky-note");
 const calendarIcon= document.querySelector(".fa-calendar");
 const cogIcon= document.querySelector(".fa-cog");
 
+
 //event listeners
 
 //if page is loaded, call the function
@@ -24,9 +25,12 @@ document.addEventListener('DOMContentLoaded', getTodos);
 dodajNoviBtn.addEventListener('click', dodajNoviRedirect);
 
 
+
 // todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
 // filterOption.addEventListener('click',filterTodo);
+
+
 
 
 addTodaysDate();
@@ -43,7 +47,7 @@ function aktiviraj(id){
 
 
 function dodajNoviRedirect() {
-    location.href = "/noviZadatak.html";
+    location.href = "/noviZadatak/noviZadatak.html";
 }
 
 function addTodaysDate() {

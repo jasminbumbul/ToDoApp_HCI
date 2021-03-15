@@ -9,27 +9,27 @@ addTodaysDate();
 
 
 document.addEventListener('DOMContentLoaded', getTodos);
-dodajNoviBtn.addEventListener('click', dodajNoviRedirect);
+// dodajNoviBtn.addEventListener('click', dodajNoviRedirect);
 
 todoList.addEventListener('click', deleteCheck);
 
-function dodajNoviRedirect() {
-    location.href = "/noviZadatak.html";
-}
-///redirect danas
-const idiDanas = document.querySelector("#danas");
-const idiDanas2 = document.querySelector("#icon-calendar");
-idiDanas.addEventListener('click', idiDanasRedirect);
-idiDanas2.addEventListener('click', idiDanasRedirect);
-function idiDanasRedirect() {
-    location.href = "/danas.html";
-}
-//redirekt pocetna
-const idiPocetna = document.querySelector("#pocetna");
-idiPocetna.addEventListener('click', idiPocetnaRedirect);
-function idiPocetnaRedirect() {
-    location.href = "/pocetna.html";
-}
+// function dodajNoviRedirect() {
+//     location.href = "/noviZadatak.html";
+// }
+// ///redirect danas
+// const idiDanas = document.querySelector("#danas");
+// const idiDanas2 = document.querySelector("#icon-calendar");
+// idiDanas.addEventListener('click', idiDanasRedirect);
+// idiDanas2.addEventListener('click', idiDanasRedirect);
+// function idiDanasRedirect() {
+//     location.href = "/danas.html";
+// }
+// //redirekt pocetna
+// const idiPocetna = document.querySelector("#pocetna");
+// idiPocetna.addEventListener('click', idiPocetnaRedirect);
+// function idiPocetnaRedirect() {
+//     location.href = "/pocetna.html";
+// }
 //redirekt zabiljeske
 const idiZabiljeske = document.querySelector("#icon-notes");
 idiZabiljeske.addEventListener('click', idiZabiljeskeRedirect);

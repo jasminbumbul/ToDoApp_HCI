@@ -2,14 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Barlow', sans-serif;
+    font-family: "Poppins", "sans-serif";
 }
 
 body{
   background: rgb(39,3,51);
   background: linear-gradient(180deg, rgba(39,3,51,1) 21%, rgba(133,39,215,1) 100%); 
     color: rgb(255, 255, 255);
-    min-height: 100vh;
+    min-height: 95vh;
+    position: relative;
 }
 
 .wrapper{

@@ -7,7 +7,13 @@ const kateg2 = document.getElementById("kateg2");
 const kateg3 = document.getElementById("kateg3");
 const kateg4 = document.getElementById("kateg4");
 
+const dodajNoviBtn = document.getElementById("dodajNovi");
 
+dodajNoviBtn.addEventListener('click',dodajNoviRedirect);
+
+function dodajNoviRedirect() {
+    location.href = "/noviZadatak/noviZadatak.html";
+}
 
 refresh();
 var test = 0.40;
@@ -25,6 +31,10 @@ function progressCircle(done) {
             if(done==1)
             {
                 $(this).parent().find("span").text("100%");
+            }
+            else if(done==0)
+            {
+                $(this).parent().find("span").text("0%");
             }
             else{
                 $(this).parent().find("span").text(String(stepValue.toFixed(2).substr(2)) + "%");
