@@ -13,11 +13,11 @@ The storage part is done through the web browsers local storage.
 
 This is only the alpha version of the app, so there is a lot more to add to it.
 
-Created by :
+### Created by :
 Jasmin Bumbul [jasmin.bumbul@edu.fit.ba] &
 Ramiz Mašić [ramiz.masic@edu.fit.ba]
 
-More screenshots:
+### More screenshots:
 
 ![alt text](https://raw.githubusercontent.com/jasminbumbul/ToDoApp_HCI/master/Screenshots/2.png?token=AK34RGZ3F773SBPPEBBV47DAFJKYS)
 ![alt text](https://raw.githubusercontent.com/jasminbumbul/ToDoApp_HCI/master/Screenshots/3.png?token=AK34RGZOLS5W73UOIBPCWFTAFJK34)
